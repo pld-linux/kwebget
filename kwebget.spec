@@ -23,7 +23,7 @@ CXXFLAGS="$RPM_OPT_FLAGS -fno-rtti -fno-exceptions"
 LDFLAGS="-s"; export LDFLAGS
 export CXXFLAGS LDFLAGS
 %configure
-make
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
