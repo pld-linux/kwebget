@@ -12,10 +12,9 @@ Source0:	http://www.kpage.de/download/%{name}-%{version}.tar.bz2
 URL:		http://www.kpage.de/en/kwebget/content.html
 BuildRequires:	automake
 BuildRequires:	kdelibs-devel >= 3.0.3
+BuildRequires:	rpmbuild(macros) >= 1.129
 Requires:	wget
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define         _htmldir        /usr/share/doc/kde/HTML
 
 %description
 KWebGet is a frontend to wget.
@@ -28,11 +27,10 @@ KWegGet to frontend KDE na wget.
 
 %build
 cp -f /usr/share/automake/config.sub admin
-kde_htmldir="%{_htmldir}"; export kde_htmldir
-kde_icondir="%{_pixmapsdir}"; export kde_icondir
+kde_htmldir="%{_kdedocdir}"; export kde_htmldir
 CXXFLAGS="%{rpmcflags} -fno-rtti -fno-exceptions"
 %configure \
-	--with-qt-includes=/usr/X11R6/include/qt
+	--with-qt-includes=/usr/include/qt
 
 %{__make}
 
@@ -55,4 +53,4 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog README TODO
 %attr(755,root,root) %{_bindir}/*
 %{_desktopdir}/kwebget.desktop
-%{_pixmapsdir}/*/*/apps/*
+%{_iconsdir}/*/*/apps/*
