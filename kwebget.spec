@@ -6,6 +6,7 @@ Release:	1
 License:	GPL
 Group:		X11/Applications/Networking
 Source0:	http://www.kpage.de/download/%{name}-%{version}.tar.bz2
+# Source0-md5:	f42b25b7db438ddd88f2323b51eec9d3
 URL:		http://www.kpage.de/en/kwebget/content.html
 BuildRequires:	kdelibs-devel >= 3.0.3
 Requires:	wget
