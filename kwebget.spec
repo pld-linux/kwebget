@@ -29,6 +29,10 @@ KWegGet to frontend KDE na wget.
 cp -f /usr/share/automake/config.sub admin
 kde_htmldir="%{_kdedocdir}"; export kde_htmldir
 CXXFLAGS="%{rpmcflags} -fno-rtti -fno-exceptions"
+%ifarch amd64
+sed -i -e 's,kde_libraries=${exec_prefix}/lib,kde_libraries=${exec_prefix}/lib64' \
+       -e 's,ac_kde_libraries=$exec_prefix/lib,ac_kde_libraries=$exec_prefix/lib64' configure
+%endif
 %configure \
 	--with-qt-includes=/usr/include/qt
 
