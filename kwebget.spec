@@ -2,7 +2,7 @@ Summary:	KWebGet is a frontend to wget
 Summary(pl):	KWebGet - frontend na wget
 Name:		kwebget
 Version:	0.8.1
-Release:	0.1
+Release:	1
 License:	GPL
 Group:		X11/Applications/Networking
 Source0:	http://www.kpage.de/download/%{name}-%{version}.tar.bz2
@@ -12,6 +12,7 @@ URL:		http://www.kpage.de/en/kwebget/content.html
 BuildRequires:	automake
 BuildRequires:	kdelibs-devel >= 3.0.3
 BuildRequires:	rpmbuild(macros) >= 1.129
+BuildRequires:	sed >= 4.0.0
 Requires:	wget
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
