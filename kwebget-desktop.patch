@@ -17,5 +17,5 @@ diff -burN kwebget.orig/kwebget/kwebget.desktop kwebget/kwebget/kwebget.desktop
  Name=Kwebget
 -Name[de]=Kwebget
 +Encoding=UTF-8
-+Categories=Qt;KDE;Network;
++Categories=Qt;KDE;Network;FileTransfer;
 +# vi: encoding=utf-8
