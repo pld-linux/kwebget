@@ -20,8 +20,6 @@ KWebGet is a frontend to wget.
 
 %build
 CXXFLAGS="$RPM_OPT_FLAGS -fno-rtti -fno-exceptions"
-LDFLAGS="-s"; export LDFLAGS
-export CXXFLAGS LDFLAGS
 %configure
 %{__make}
 
