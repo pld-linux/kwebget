@@ -1,5 +1,3 @@
-# ToDo:
-# - vfolderize desktop file
 Summary:	KWebGet is a frontend to wget
 Summary(pl):	KWebGet - frontend na wget
 Name:		kwebget
@@ -9,6 +7,7 @@ License:	GPL
 Group:		X11/Applications/Networking
 Source0:	http://www.kpage.de/download/%{name}-%{version}.tar.bz2
 # Source0-md5:	0143a6e092da11000bafe6c71912247c
+Patch0:		%{name}-desktop.patch
 URL:		http://www.kpage.de/en/kwebget/content.html
 BuildRequires:	automake
 BuildRequires:	kdelibs-devel >= 3.0.3
@@ -24,6 +23,7 @@ KWegGet to frontend KDE na wget.
 
 %prep
 %setup -q -n %{name}
+%patch0 -p1
 
 %build
 cp -f /usr/share/automake/config.sub admin
