@@ -4,6 +4,7 @@ Version:	0.5
 Release:	1
 License:	GPL
 Group:		X11/KDE/Applications
+Group(de):	X11/KDE/Applikationen
 Group(pl):	X11/KDE/Aplikacje
 Source0:	http://www.kpage.de/download/%{name}-%{version}.tar.bz2
 URL:		http://www.kpage.de/en/kwebget/content.html
@@ -19,7 +20,7 @@ KWebGet is a frontend to wget.
 %setup -q
 
 %build
-CXXFLAGS="$RPM_OPT_FLAGS -fno-rtti -fno-exceptions"
+CXXFLAGS="%{rpmcflags} -fno-rtti -fno-exceptions"
 %configure
 %{__make}
 
@@ -32,3 +33,4 @@ rm -rf $RPM_BUILD_ROOT
 rm -rf $RPM_BUILD_ROOT
 
 %files -f ../file.list.%{name}
+%defattr(644,root,root,755)
