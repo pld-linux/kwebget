@@ -7,12 +7,13 @@ License:	GPL
 Group:		X11/Applications/Networking
 Source0:	http://www.kpage.de/download/%{name}-%{version}.tar.bz2
 # Source0-md5:	0143a6e092da11000bafe6c71912247c
+Source1:	http://ep09.pld-linux.org/~djurban/kde/kde-common-admin.tar.bz2
+# Source1-md5:	e5c75ce22f1525b13532b519ae88e7a4
 Patch0:		%{name}-desktop.patch
 URL:		http://www.kpage.de/en/kwebget/content.html
 BuildRequires:	automake
 BuildRequires:	kdelibs-devel >= 3.0.3
 BuildRequires:	rpmbuild(macros) >= 1.129
-BuildRequires:	sed >= 4.0.0
 Requires:	wget
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -23,18 +24,18 @@ KWebGet is a frontend to wget.
 KWegGet to frontend KDE na wget.
 
 %prep
-%setup -q -n %{name}
+%setup -q -n %{name} -a1
 %patch0 -p1
 
 %build
 cp -f /usr/share/automake/config.sub admin
 kde_htmldir="%{_kdedocdir}"; export kde_htmldir
 CXXFLAGS="%{rpmcflags} -fno-rtti -fno-exceptions"
-%ifarch amd64
-sed -i -e 's,kde_libraries=${exec_prefix}/lib,kde_libraries=${exec_prefix}/lib64,' \
-       -e 's,ac_kde_libraries=$exec_prefix/lib,ac_kde_libraries=$exec_prefix/lib64,' configure
-%endif
+%{__make} -f admin/Makefile.common cvs
 %configure \
+	%if "%{_lib}" == "lib64"
+	--enable-libsuffix=64 \
+	%endif
 	--with-qt-includes=/usr/include/qt
 
 %{__make}
