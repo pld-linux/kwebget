@@ -27,6 +27,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
 %define		_mandir		%{_prefix}/man
+%define         _htmldir        /usr/share/doc/kde/HTML
 
 %description
 KWebGet is a frontend to wget.
@@ -38,6 +39,8 @@ KWegGet to frontend KDE na wget.
 %setup -q
 
 %build
+kde_htmldir="%{_htmldir}"; export kde_htmldir
+kde_icondir="%{_pixmapsdir}"; export kde_icondir
 CXXFLAGS="%{rpmcflags} -fno-rtti -fno-exceptions"
 %configure2_13 \
 	--with-qt-includes=/usr/X11R6/include/qt
@@ -52,16 +55,14 @@ install -d $RPM_BUILD_ROOT%{_docdir}
 	DESTDIR=$RPM_BUILD_ROOT
 
 mv -f $RPM_BUILD_ROOT%{_applnkdir}/{Internet,Network}
-mv -f $RPM_BUILD_ROOT{%{_datadir}/icons,%{_pixmapsdir}}
-mv -f $RPM_BUILD_ROOT%{_datadir}/doc $RPM_BUILD_ROOT%{_docdir}/kde
+
+%find_lang %{name} --with-kde --all-name
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/*
 %{_applnkdir}/Network/kwebget.desktop
 %{_pixmapsdir}/*/*/apps/*
-%{_docdir}/kde/HTML/en/kwebget
-%lang(de) %{_docdir}/kde/HTML/de/kwebget
