@@ -1,11 +1,12 @@
-Summary:	KWebGet is a frontend to wget.
+Summary:	KWebGet is a frontend to wget
+Summary(pl):	KWebGet - frontend na wget
 Name:		kwebget
 Version:	0.5
 Release:	1
 License:	GPL
-Group:		X11/KDE/Applications
-Group(de):	X11/KDE/Applikationen
-Group(pl):	X11/KDE/Aplikacje
+Group:		X11/Applications/Networking
+Group(de):	X11/Applikationen/Netzwerkwesen
+Group(pl):	X11/Aplikacje/Sieciowe
 Source0:	http://www.kpage.de/download/%{name}-%{version}.tar.bz2
 URL:		http://www.kpage.de/en/kwebget/content.html
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -15,6 +16,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 KWebGet is a frontend to wget.
+
+%description -l pl
+KWegGet to frontend KDE na wget.
 
 %prep
 %setup -q
