@@ -7,7 +7,7 @@ Group:		X11/KDE/Applications
 Group(pl):	X11/KDE/Aplikacje
 Source0:	http://www.kpage.de/download/%{name}-%{version}.tar.bz2
 URL:		http://www.kpage.de/en/kwebget/content.html
-BuildRoot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
 %define		_mandir		%{_prefix}/man
