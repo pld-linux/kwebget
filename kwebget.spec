@@ -10,6 +10,7 @@ Group:		X11/Applications/Networking
 Source0:	http://www.kpage.de/download/%{name}-%{version}.tar.bz2
 # Source0-md5:	0143a6e092da11000bafe6c71912247c
 URL:		http://www.kpage.de/en/kwebget/content.html
+BuildRequires:	automake
 BuildRequires:	kdelibs-devel >= 3.0.3
 Requires:	wget
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -26,6 +27,7 @@ KWegGet to frontend KDE na wget.
 %setup -q -n %{name}
 
 %build
+cp -f /usr/share/automake/config.sub admin
 kde_htmldir="%{_htmldir}"; export kde_htmldir
 kde_icondir="%{_pixmapsdir}"; export kde_icondir
 CXXFLAGS="%{rpmcflags} -fno-rtti -fno-exceptions"
