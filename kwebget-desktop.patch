@@ -1,21 +1,21 @@
 diff -burN kwebget.orig/kwebget/kwebget.desktop kwebget/kwebget/kwebget.desktop
 --- kwebget.orig/kwebget/kwebget.desktop	2005-01-09 20:12:03.500098536 +0100
 +++ kwebget/kwebget/kwebget.desktop	2005-01-09 20:16:07.989930432 +0100
-@@ -1,12 +1,12 @@
+@@ -1,12 +1,11 @@
 -# KDE Config File  
  [Desktop Entry]
--Encoding=UTF-8
+ Encoding=UTF-8
  Type=Application
  Exec=kwebget -caption "%c" %i %m  
  Icon=kwebget.png
  DocPath=kwebget/index.html
 -Comment=
 -Comment[de]=
+-Terminal=0
 +Comment=Frontend to wget
-+Comment[pl]=Frontend na wget
- Terminal=0
++Comment[pl]=Nakładka na wget
++Terminal=false
  Name=Kwebget
 -Name[de]=Kwebget
-+Encoding=UTF-8
 +Categories=Qt;KDE;Network;FileTransfer;
 +# vi: encoding=utf-8
