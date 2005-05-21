@@ -10,6 +10,7 @@ Source0:	http://www.kpage.de/download/%{name}-%{version}.tar.bz2
 Source1:	http://ep09.pld-linux.org/~djurban/kde/kde-common-admin.tar.bz2
 # Source1-md5:	e5c75ce22f1525b13532b519ae88e7a4
 Patch0:		%{name}-desktop.patch
+Patch1:		%{name}-am19.patch
 URL:		http://www.kpage.de/en/kwebget/content.html
 BuildRequires:	automake
 BuildRequires:	kdelibs-devel >= 3.0.3
@@ -26,6 +27,7 @@ KWegGet to frontend KDE na wget.
 %prep
 %setup -q -n %{name} -a1
 %patch0 -p1
+%patch1 -p1
 
 %build
 cp -f /usr/share/automake/config.sub admin
