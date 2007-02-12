@@ -1,5 +1,5 @@
 Summary:	KWebGet is a frontend to wget
-Summary(pl):	KWebGet - frontend na wget
+Summary(pl.UTF-8):   KWebGet - frontend na wget
 Name:		kwebget
 Version:	0.8.1
 Release:	3
@@ -21,7 +21,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 KWebGet is a frontend to wget.
 
-%description -l pl
+%description -l pl.UTF-8
 KWegGet to frontend KDE na wget.
 
 %prep
