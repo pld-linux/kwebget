@@ -64,4 +64,5 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog README TODO
 %attr(755,root,root) %{_bindir}/*
 %{_desktopdir}/kwebget.desktop
-%{_iconsdir}/hicolor/*/apps/*
+# XXX: there are only locolor
+#%{_iconsdir}/hicolor/*/apps/*
