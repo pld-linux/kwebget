@@ -27,9 +27,9 @@ KWegGet to frontend KDE na wget.
 
 %prep
 %setup -q -n %{name} -a1
-%patch0 -p1
-%patch1 -p1
-%patch2 -p1
+%patch -P0 -p1
+%patch -P1 -p1
+%patch -P2 -p1
 
 %build
 cp -f /usr/share/automake/config.sub admin
